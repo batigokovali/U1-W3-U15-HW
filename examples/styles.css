@@ -70,3 +70,8 @@ p {
 .hide{
     visibility: hidden;
 }
+
+.bilbo{
+    width: 150px;
+    height: 100px;
+}
