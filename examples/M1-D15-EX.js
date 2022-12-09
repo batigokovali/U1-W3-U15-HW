@@ -175,5 +175,140 @@ function emptyList()
 
 function displayHref()
 {
+    let selectedLink = document.querySelectorAll("a")
+    console.log(selectedLink)
+    for (let i = 0; i<selectedLink.length; ++i)
+    {
+        selectedLink[i].addEventListener("mouseover", function()
+        {
+            alert(selectedLink[i].getAttribute("href"))
+        })
+    }
+}
+displayHref()
+
+function hideImages()
+{
+    let imagesToHide = document.querySelectorAll("img")
+    for (let i = 0; i< imagesToHide.length; i++)
+    {
+        imagesToHide[i].classList.toggle("class-to-hide")
+    }
+}
+
+function hideTable()
+{
+    let tablesToHide = document.querySelectorAll("table")
+    for (let i = 0; i< tablesToHide.length; i++)
+    {
+        tablesToHide[i].classList.toggle("hide")
+    }
+}
+
+function sumAllTableCells()
+{
+    let cells = document.querySelectorAll("td");
+    let sumOfCells = 0;
+    for (let i = 0 ; i< cells.length ; i++)
+    {
+        let innerData = cells[i].innerText
+        dataInteger = parseInt(innerData)
+
+    if (!isNaN(dataInteger))
+    {
+        sumOfCells += dataInteger;
+    }
+    return sumOfCells;
+    }
+}
+
+function deleteLastLetter()
+{
+    let h1 = document.getElementsByTagName("h1")[0];
+    h1.addEventListener("click", function(event)
+    {
+        event.target.innerText = event.target.innerText.slice(0, -1)
+    })
+}
+deleteLastLetter()
+
+function randomInteger(max)
+{
+    return Math.floor(Math.random()*(max +1));
+}
+
+function randomRGBColor()
+{
+    let r = randomInteger(255);
+    let g = randomInteger(255);
+    let b = randomInteger(255);
+    return [r,g,b];
+}
+
+function tdChangeBackgroundColor()
+{
+    let td = document.querySelectorAll("td")
+    for (i = 0; i< td.length; i++)
+    {
+        td[i].addEventListener("click", function(event)
+        {
+            for (i = 0; i< td.length; i++)
+            {
+                event.target.style.backgroundColor = `rgb(${randomRGBColor()})`;
+            }
+        })
+    }
     
+}
+tdChangeBackgroundColor()
+
+function deleteRandomTD()
+{
+    let td = document.querySelectorAll("td")
+    let random = Math.floor(Math.random()*td.length);
+    let randomTD = td[random];
+    let parent = td[random].closest("tr");
+    parent.removeChild(randomTD);
+}
+
+function pinkBorderOnHover()
+{
+    let td = document.querySelectorAll("td")
+    for (i = 0; i< td.length; i++)
+    {
+        td[i].addEventListener("mouseover", function(event)
+        {
+            for (i = 0; i< td.length; i++)
+            {
+                event.target.style.borderColor = "pink";
+            }
+        })
+    }
+    
+}
+pinkBorderOnHover()
+
+function createTable()
+{
+    let newAreaForTable = document.getElementById("new-table-created");
+    let newTable = document.createElement("table");
+    newAreaForTable.appendChild(newTable);
+
+    for (let i = 1; i<=4; i++)
+    {
+        let newTR = document.createElement("tr");
+        newTable.appendChild(newTR);
+        for (let j = 1; j <=3; j++)
+        {
+            let newTD = document.createElement("td");
+            newTR.appendChild(newTD);
+        }
+    }
+}
+
+function removeLastTable()
+{
+    let parent = document.getElementById("new-table-created");
+    let tableToRemove = querySelectorAll("#new-table-created table")
+    parent.removeChild(tableToRemove);
 }

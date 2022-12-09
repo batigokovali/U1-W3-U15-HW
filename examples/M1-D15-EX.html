@@ -18,7 +18,7 @@
     <div>
       <table id="table">
         <tr>
-          <td>Table item</td>
+          <td>Table Item</td>
           <td><a href="https://marshall.com/amps" target="_blank"><span class="link"><img class="image" src="https://www.stars-music.com/medias/marshall/1959hw-head-handwired-100w-black-hd-4-116525.jpg"></span></a></td>
           <td colspan="2">Table item</td>
           <td>Table item</td>
@@ -45,6 +45,9 @@
           <td>Table item</td>
         </tr>
       </table>
+      <div>
+        <input type="button" value="Click to Remove Random Table Data!" onclick="deleteRandomTD()">
+      </div>
       <hr>
       <div>
         <p>This is a nested paragraph</p>
@@ -52,6 +55,14 @@
           <li>This is a list item of a nested unordered list</li>
         </ul>
       </div>
+    </div>
+    <div>
+      <input type="button" value="Click to Hide Images!" id="hide-images-button" onclick="hideImages()">
+    </div>
+    <div>
+      <input type="button" value="Click to Hide the Table" id="hide-table-button" onclick="hideTable()">
+    </div>
+    <div id="new-table-created">
     </div>
     <div id="footer">
       <footer>
